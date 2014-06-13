@@ -7,6 +7,22 @@ $(document).ready( function() {
 		getUnanswered(tags);
 	});
 });
+===========================================================================
+
+
+$(document).ready( function() {
+	$('.inspiration-getter').submit( function(event){
+		// zero out results if previous search has run
+		$('.results').html('');
+		// get the value of the tags the user submitted
+		var tags = $(this).find("input[name='tags']").val(); //modify this
+		
+		getUnanswered(tags);
+	});
+});
+
+
+
 
 // this function takes the question object returned by StackOverflow 
 // and creates new result to be appended to DOM
@@ -77,7 +93,7 @@ var getUnanswered = function(tags) {
 
 		$('.search-results').html(searchResults);
 
-		$.each(result.items, function(i, item) {
+		$.each(result.items, function(i, item) {  //for each loop
 			var question = showQuestion(item);
 			$('.results').append(question);
 		});
