@@ -7,7 +7,7 @@ $(document).ready( function() {
 		getUnanswered(tags);
 	});
 });
-===========================================================================
+
 
 
 $(document).ready( function() {
@@ -21,7 +21,6 @@ $(document).ready( function() {
 	});
 });
 
-===========================================================================
 
 // this function takes the question object returned by StackOverflow 
 // and creates new result to be appended to DOM
@@ -56,7 +55,7 @@ var showQuestion = function(question) {
 	return result;
 };
 
-===========================================================================================
+
 // this function takes the user object returned by StackOverflow 
 // and creates new user results to be appended to DOM
 // need to get elements that are particular to the USERS
@@ -104,8 +103,6 @@ var showUserResults = function(query, resultNum) {
 };
 
 
-
-====================================================================
 
 
 // this function takes the results object from StackOverflow
@@ -158,7 +155,7 @@ var getUnanswered = function(tags) {
 	});
 };
 
-=============================================================================
+
 
 var getTopusers = function (answerers) {
 
