@@ -163,7 +163,7 @@ var  userrequest = {tag: topics, //stays
 								site: 'stackoverflow',  // stays
 								page: 1,  
 								pagesize: 10,
-								period: all_time};  
+								period: 'all_time'};  
 	
 	var result = $.ajax({
 		url: "http://api.stackexchange.com/2.2/tags/"+tags+"/top-answerers/all_time",  
