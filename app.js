@@ -15,7 +15,7 @@ $(document).ready( function() {
 		// zero out results if previous search has run
 		$('.results').html('');
 		// get the value of the tags the user submitted
-		var tags = $(this).find("input[name='answerers']").val(); //modify this
+		var topics = $(this).find("input[name='answerers']").val(); //modify this
 		
 		getTopusers(answerers);  //creates a similar  function structure to receive data.
 	});
@@ -159,7 +159,7 @@ var getUnanswered = function(tags) {
 
 var getTopusers = function (answerers) {
 
-var  userrequest = {tag: tags, //stays
+var  userrequest = {tag: topics, //stays
 								site: 'stackoverflow',  // stays
 								page: 1,  
 								pagesize: 10,
