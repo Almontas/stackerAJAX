@@ -86,7 +86,7 @@ var showUser = function(showUser) {
 	var reputation = result.find('.reputation');
 	score.text(answerer.reputation);
 	
-	)
+	
 
 	return result;
 };
