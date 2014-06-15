@@ -157,7 +157,7 @@ var getUnanswered = function(tags) {
 
 
 
-var getTopusers = function (answerers) {
+var getTopusers = function (topics) {
 
 var  userrequest = {tag: topics, //stays
 								site: 'stackoverflow',  // stays
