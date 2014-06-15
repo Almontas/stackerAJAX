@@ -187,8 +187,3 @@ var  userrequest = {tag: tags, //stays
 	});
 };
 
-
-
-
-
-};
