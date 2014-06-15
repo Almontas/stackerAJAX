@@ -84,7 +84,7 @@ var showUser = function(showUsers) {
 
 	// sets the reputation of the answerer
 	var reputation = result.find('.reputation');
-	score.text(showUsers.reputation);
+	reputation.text(showUsers.user.reputation);
 	
 	
 
@@ -172,7 +172,7 @@ var  userrequest = {tag: topics, //stays
 		type: "GET",  //stays
 		})
 	.done(function(result){
-		var searchResults = showUserResults(userrequest.tagged, result.items.length);
+		var searchResults = showUserResults(userrequest.tag, result.items.length);
 
 		$('.search-results').html(searchResults);
 
