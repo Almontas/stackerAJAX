@@ -59,7 +59,7 @@ var showQuestion = function(question) {
 // this function takes the user object returned by StackOverflow 
 // and creates new user results to be appended to DOM
 // need to get elements that are particular to the USERS
-var showUser = function(showUser) {
+var showUser = function(showUsers) {
 	
 	// clone our result template code
 	var result = $('.templates .answerer').clone();  //WE NEED TO SET UP A DT ELEMENT FOR RESPONSE ALSO
@@ -67,24 +67,24 @@ var showUser = function(showUser) {
 	
 	// Set the user display name properties in result  
 	var display_name = result.find('.username a');
-	display_name.attr('href', answerer.user.link);
-	display_name.text(answerer.user.display_name);
+	display_name.attr('href', showUsers.user.link);
+	display_name.text(showUsers.user.display_name);
 
 	// set the user id property in result
 	var userid = result.find('.userid');
-	userid.text(answerer.user.user_id);
+	userid.text(showUsers.user.user_id);
 
 	// set the # of posts of the answerer
 	var post = result.find('.postcount');
-	post.text(answerer.post_count);
+	post.text(showUsers.post_count);
 
 	// sets the score of the answerer
 	var score = result.find('.score');
-	score.text(answerer.score);
+	score.text(showUsers.score);
 
 	// sets the reputation of the answerer
 	var reputation = result.find('.reputation');
-	score.text(answerer.reputation);
+	score.text(showUsers.reputation);
 	
 	
 
