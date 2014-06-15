@@ -17,7 +17,7 @@ $(document).ready( function() {
 		// get the value of the tags the user submitted
 		var topics = $(this).find("input[name='answerers']").val(); //modify this
 		
-		getTopusers(topics;  //creates a similar  function structure to receive data.
+		getTopusers(topics);  //creates a similar  function structure to receive data.
 	});
 });
 
