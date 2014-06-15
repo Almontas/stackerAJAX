@@ -177,8 +177,8 @@ var  userrequest = {tag: topics, //stays
 		$('.search-results').html(searchResults);
 
 		$.each(result.items, function(i, item) {  //for each loop
-			var showUser = showUser(item); //update name of this //updated watch out
-			$('.results').append(showUser); //update name of this
+			var showUsers = showUser(item); //update name of this //updated watch out
+			$('.results').append(showUsers); //update name of this
 		});
 	})
 	.fail(function(jqXHR, error, errorThrown){ //stays common element
