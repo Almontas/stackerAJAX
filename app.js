@@ -172,7 +172,7 @@ var  userrequest = {tag: topics, //stays
 		type: "GET",  //stays
 		})
 	.done(function(result){
-		var searchResults = showUserResults(request.tagged, result.items.length);
+		var searchResults = showUserResults(userrequest.tagged, result.items.length);
 
 		$('.search-results').html(searchResults);
 
