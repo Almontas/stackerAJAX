@@ -15,14 +15,13 @@ $(document).ready( function() {
 		// zero out results if previous search has run
 		$('.results').html('');
 		// get the value of the tags the user submitted
-		var tags = $(this).find("input[name='tags']").val(); //modify this
+		var tags = $(this).find("input[name='answerers']").val(); //modify this
 		
-		getUnanswered(tags);
+		getTopusers(answerers);  //creates a similar  function structure to receive data.
 	});
 });
 
-
-
+===========================================================================
 
 // this function takes the question object returned by StackOverflow 
 // and creates new result to be appended to DOM
@@ -57,6 +56,57 @@ var showQuestion = function(question) {
 	return result;
 };
 
+===========================================================================================
+// this function takes the user object returned by StackOverflow 
+// and creates new user results to be appended to DOM
+// need to get elements that are particular to the USERS
+var showUser = function(showUser) {
+	
+	// clone our result template code
+	var result = $('.templates .answerer').clone();  //WE NEED TO SET UP A DT ELEMENT FOR RESPONSE ALSO
+	//how is all the stuff below going into result?
+	
+	// Set the user display name properties in result  
+	var display_name = result.find('.username a');
+	display_name.attr('href', answerer.user.link);
+	display_name.text(answerer.user.display_name);
+
+	// set the user id property in result
+	var userid = result.find('.userid');
+	userid.text(answerer.user.user_id);
+
+	// set the # of posts of the answerer
+	var post = result.find('.postcount');
+	post.text(answerer.post_count);
+
+	// sets the score of the answerer
+	var score = result.find('.score');
+	score.text(answerer.score);
+
+	// sets the reputation of the answerer
+	var reputation = result.find('.reputation');
+	score.text(answerer.reputation);
+	
+	);
+
+	return result;
+};
+
+
+
+
+
+// this function takes the results object from StackOverflow
+// and creates info about search results to be appended to DOM
+var showUserResults = function(query, resultNum) {
+	var results = resultNum + ' results for <strong>' + query;
+	return results;
+};
+
+
+
+====================================================================
+
 
 // this function takes the results object from StackOverflow
 // and creates info about search results to be appended to DOM
@@ -64,6 +114,10 @@ var showSearchResults = function(query, resultNum) {
 	var results = resultNum + ' results for <strong>' + query;
 	return results;
 };
+
+
+
+
 
 // takes error string and turns it into displayable DOM element
 var showError = function(error){
@@ -104,5 +158,40 @@ var getUnanswered = function(tags) {
 	});
 };
 
+=============================================================================
+
+var getTopusers = function (answerers) {
+
+var  userrequest = {tag: tags, //stays
+								site: 'stackoverflow',  // stays
+								page: 1,  
+								pagesize: 10,
+								period: all_time};  
+	
+	var result = $.ajax({
+		url: "http://api.stackexchange.com/2.2/tags/"+tags+"/top-answerers/all_time",  
+		data: request, //stays
+		dataType: "jsonp",  //stays
+		type: "GET",  //stays
+		})
+	.done(function(result){
+		var searchResults = showUserResults(request.tagged, result.items.length);
+
+		$('.search-results').html(searchResults);
+
+		$.each(result.items, function(i, item) {  //for each loop
+			var showUser = showUser(item); //update name of this //updated watch out
+			$('.results').append(showUser); //update name of this
+		});
+	})
+	.fail(function(jqXHR, error, errorThrown){ //stays common element
+		var errorElem = showError(error); //stays common element
+		$('.search-results').append(errorElem); //stays common element
+	});
+};
 
 
+
+
+
+};
