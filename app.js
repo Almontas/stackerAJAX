@@ -160,13 +160,13 @@ var getUnanswered = function(tags) {
 var getTopusers = function (topics) {
 
 var  userrequest = {tag: topics, //stays
-								site: 'stackoverflow',  // stays
+								site: 'stackoverflow',  
 								page: 1,  
 								pagesize: 10,
 								period: 'all_time'};  
 	
 	var result = $.ajax({
-		url: "http://api.stackexchange.com/2.2/tags/"+tags+"/top-answerers/all_time",  
+		url: "http://api.stackexchange.com/2.2/tags/"+topics+"/top-answerers/all_time",  
 		data: request, //stays
 		dataType: "jsonp",  //stays
 		type: "GET",  //stays
