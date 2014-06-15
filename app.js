@@ -167,7 +167,7 @@ var  userrequest = {tag: topics, //stays
 	
 	var result = $.ajax({
 		url: "http://api.stackexchange.com/2.2/tags/"+topics+"/top-answerers/all_time",  
-		data: request, //stays
+		data: userrequest, //stays
 		dataType: "jsonp",  //stays
 		type: "GET",  //stays
 		})
